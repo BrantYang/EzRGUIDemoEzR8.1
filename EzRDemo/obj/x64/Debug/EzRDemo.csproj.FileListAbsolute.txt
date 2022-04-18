@@ -31,3 +31,36 @@ F:\SICK Demo\EzR Develop\EzR Integration\EzRViewerDemoEzR8.1\EzRDemo\obj\x64\Deb
 F:\SICK Demo\EzR Develop\EzR Integration\EzRViewerDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.csproj.CopyComplete
 F:\SICK Demo\EzR Develop\EzR Integration\EzRViewerDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.exe
 F:\SICK Demo\EzR Develop\EzR Integration\EzRViewerDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.MainForm.resources
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.Properties.Resources.resources
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.csproj.GenerateResource.cache
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.csproj.CoreCompileInputs.cache
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.exe
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRDemo.exe.config
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRDemo.exe
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRDemo.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRViewer.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\Sick.EasyRanger.Controls.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\Sick.EasyRanger.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\Sick.GenIStreamDotNet.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\Sick.StreamUI.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\System.Windows.Interactivity.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\OxyPlot.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\OxyPlot.Wpf.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\OpenTK.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\OpenTK.GLControl.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\ReactiveUI.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRViewer.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\de\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\en\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\es\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\fr\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\it\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\ja\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\ko\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\ru\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\sick_easyranger.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.csproj.CopyComplete

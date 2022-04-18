@@ -5,17 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sick.EasyRanger.Basic;
-using Sick.EasyRanger.Base;
-using Sick.EasyRanger.Controls;
-using Sick.EasyRanger.Controls.Interfaces;
 using Sick.EasyRanger;
+using Sick.EasyRanger.Base;
+using Sick.GenIStream;
+using Sick.StreamUI.ImageFormat;
 using System.IO;
 using System.Windows;
 using EzRViewer;
-
+using Sick.EasyRanger.Controls;
+using System.Net;
+using System.Windows.Threading;
 
 namespace EzRDemo
 {
@@ -36,13 +36,23 @@ namespace EzRDemo
         //相机对象接口
         public ICameraDevice cam;
 
+        readonly CameraDiscovery _discovery;
+        public ICamera Camera { get; private set; }
+        public FrameGrabber Grabber { get; set; }
+
         //EasyRanger 对象
         public ProcessingEnvironment easyRanger = new ProcessingEnvironment();
 
+        public bool IsStarted => Grabber?.IsStarted ?? false;
+        public bool IsStopped => IsConnected && !IsStarted;
+        public bool IsConnected => Camera?.IsConnected ?? false;
+        public bool IsDisconnected => !IsConnected;
+
         public MainForm()
         {
-
             InitializeComponent();
+            var path = Environment.GetEnvironmentVariable("SICK_EASYRANGER_ROOT");
+            _discovery = CameraDiscovery.CreateFromProducerFile($@"{path}\SICKGigEVisionTL.cti");
         }
 
         //Log记录数据
@@ -89,6 +99,21 @@ namespace EzRDemo
 
             viewer2D_A.Environment = easyRanger;
             viewer2D_B.Environment = easyRanger;
+
+            var discoveredCameras = _discovery.ScanForCameras();
+            if (discoveredCameras.Count == 0)
+            {
+                OnUpdatListContext("No cameras found");
+                return;
+            }
+            else
+            {
+                OnUpdatListContext("Found "+ discoveredCameras.Count.ToString()+ " Camera");
+                foreach(DiscoveredCamera cam in discoveredCameras)
+                {
+                    OnUpdatListContext("SN: " + cam.SerialNumber + " IP: " + cam.IpAddress.ToString()+ " Name: " + cam.UserDefinedName);
+                }
+            }
         }
         public string CalibPath = "";
         public string CamCfgPath = "";
@@ -126,19 +151,22 @@ namespace EzRDemo
         {
             try
             {
-                CameraId cameraId = new CameraId("Camera1");
-                cam = easyRanger.CreateCameraDevice(txtCameraName.Text, cameraId, CameraType.Ranger3);
-                cam.IP = txtCamIP.Text; //相机IP地址
+                Camera = _discovery.ConnectTo(IPAddress.Parse(txtCameraName.Text));
+                Camera.ImportParametersFromCsvData(txtCamCfgPath.Text);
+                //Camera.GetCameraParameters().DeviceScanType.Set(DeviceScanType.LINESCAN_3D);
                 //cam.CalibrationFile = txtCamCalibPath.Text; //标定文件
                 //cam.ConfigurationFile = txtCamCfgPath.Text; //相机配置文件
 
-                cam.Connect();
-                cam.YResolution = (float)Convert.ToDouble(txtYResolution.Text); //Y方向分辨率
+                //cam.Connect();
+                //cam.YResolution = (float)Convert.ToDouble(txtYResolution.Text); //Y方向分辨率
                 //cam.RectificationWidth = Convert.ToInt32(txtImageWidth.Text);
                 //cam.OutputMode = OutputType.CalibratedAndRectified; //标定输出图像模式
                 //cam.RectificationMethod = RectificationMethods.TopMost; //图像校正方法
-                System.Threading.Thread.Sleep(200);
-                cam.Start();
+                Grabber?.Dispose();
+                Grabber = Camera?.CreateFrameGrabber(10);
+                Grabber?.Start();
+                // Register to FrameReceived  event
+                Grabber.FrameReceived += GrabberOnFrameReceived;
             }
             catch(Exception ee)
             {
@@ -158,6 +186,30 @@ namespace EzRDemo
             {
                 System.Windows.Forms.MessageBox.Show(ee.Message);
             }
+        }
+        private void GrabberOnFrameReceived(Sick.GenIStream.IFrame frame)
+        {
+            if (!frame.IsIncomplete())
+            {
+                this.BeginInvoke(new Action(() =>
+                {
+                    HandleFrame(frame);
+                }));
+            }
+        }
+
+        private void HandleFrame(Sick.GenIStream.IFrame frame)
+        {
+            //Add the frame to the Environment, 
+            //this will creates an image variable with the name "Image".
+            FromGenIStreamFrameConverter.AddFrameToEnvironment(frame, "Image", easyRanger);
+            IStepProgram program = easyRanger.GetStepProgram(0);
+            program.RunFromBeginning();
+
+            viewer2D_A.DrawImage("Image", SubComponent.Range);
+
+            // Access the image components
+            //Sick.EasyRanger.Base.IFrame image = easyRanger.GetFrame("Image");
         }
 
         //加载图像处理任务
