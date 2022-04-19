@@ -33,8 +33,9 @@ namespace EzRDemo
         //2D显示控件
         View2DControl viewer2D_A;//显示控件A
         View2DControl viewer2D_B;//显示控件B
-        //相机对象接口
-        public ICameraDevice cam;
+
+        //Trispector相机对象接口
+        //public ICameraDevice cam;
 
         readonly CameraDiscovery _discovery;
         public ICamera Camera { get; private set; }
@@ -151,7 +152,7 @@ namespace EzRDemo
         {
             try
             {
-                Camera = _discovery.ConnectTo(IPAddress.Parse(txtCameraName.Text));
+                Camera = _discovery.ConnectTo(IPAddress.Parse(txtCamIP.Text));
                 Camera.ImportParametersFromCsvData(txtCamCfgPath.Text);
                 //Camera.GetCameraParameters().DeviceScanType.Set(DeviceScanType.LINESCAN_3D);
                 //cam.CalibrationFile = txtCamCalibPath.Text; //标定文件
@@ -179,8 +180,8 @@ namespace EzRDemo
         {
             try
             {
-                cam.Stop();
-                cam.Disconnect();
+                //cam.Stop();
+                //cam.Disconnect();
             }
             catch (Exception ee)
             {
@@ -191,7 +192,7 @@ namespace EzRDemo
         {
             if (!frame.IsIncomplete())
             {
-                this.BeginInvoke(new Action(() =>
+                this.BeginInvoke(new MethodInvoker(() =>
                 {
                     HandleFrame(frame);
                 }));
@@ -203,8 +204,8 @@ namespace EzRDemo
             //Add the frame to the Environment, 
             //this will creates an image variable with the name "Image".
             FromGenIStreamFrameConverter.AddFrameToEnvironment(frame, "Image", easyRanger);
-            IStepProgram program = easyRanger.GetStepProgram(0);
-            program.RunFromBeginning();
+            //IStepProgram program = easyRanger.GetStepProgram(0);
+            //program.RunFromBeginning();
 
             viewer2D_A.DrawImage("Image", SubComponent.Range);
 
@@ -357,10 +358,10 @@ namespace EzRDemo
 
         private void runTimer_Tick(object sender, EventArgs e)
         {
-            if(cam.AvailableBuffers>0 )
-            {
-                RunEzRProg();
-            }
+            //if(cam.AvailableBuffers>0 )
+            //{
+            //    RunEzRProg();
+            //}
         }
 
         private void btnTeachROI_Click(object sender, EventArgs e)
