@@ -1,0 +1,10 @@
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\EzRUtility.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\EzRUtility.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\BaseDotNetInterfaces.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\Sick.GenIStreamDotNet.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\obj\Debug\EzRUtility.csproj.CoreCompileInputs.cache
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\obj\Debug\EzRUtility.csproj.CopyComplete
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\obj\Debug\EzRUtility.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\obj\Debug\EzRUtility.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\Sick.EasyRanger.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\sick_easyranger.dll

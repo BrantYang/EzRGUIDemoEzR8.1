@@ -62,7 +62,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnSaveEzR = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.listBoxLog = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -70,6 +69,8 @@
             this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.runTimer = new System.Windows.Forms.Timer(this.components);
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.listBoxLog = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,20 +83,20 @@
             this.groupBox1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -118,7 +119,7 @@
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(203, 582);
@@ -132,9 +133,9 @@
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(195, 556);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "基本操作";
@@ -147,9 +148,9 @@
             this.groupBox4.Controls.Add(this.txtScore);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Location = new System.Drawing.Point(2, 425);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(191, 126);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
@@ -187,7 +188,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResultDist.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtResultDist.Location = new System.Drawing.Point(3, 39);
-            this.txtResultDist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtResultDist.Margin = new System.Windows.Forms.Padding(2);
             this.txtResultDist.Name = "txtResultDist";
             this.txtResultDist.Size = new System.Drawing.Size(186, 27);
             this.txtResultDist.TabIndex = 9;
@@ -198,7 +199,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtScore.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtScore.Location = new System.Drawing.Point(3, 96);
-            this.txtScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(2);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(186, 27);
             this.txtScore.TabIndex = 13;
@@ -211,9 +212,9 @@
             this.groupBox3.Controls.Add(this.chkRunContinuous);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(2, 327);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(191, 98);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
@@ -225,7 +226,7 @@
             this.btnConnect.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnConnect.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnConnect.Location = new System.Drawing.Point(4, 19);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(74, 37);
             this.btnConnect.TabIndex = 6;
@@ -241,7 +242,7 @@
             this.btnDisconnect.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnDisconnect.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDisconnect.Location = new System.Drawing.Point(82, 19);
-            this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(106, 37);
             this.btnDisconnect.TabIndex = 7;
@@ -255,7 +256,7 @@
             this.btnGetValue.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnGetValue.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnGetValue.Location = new System.Drawing.Point(4, 56);
-            this.btnGetValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGetValue.Margin = new System.Windows.Forms.Padding(2);
             this.btnGetValue.Name = "btnGetValue";
             this.btnGetValue.Size = new System.Drawing.Size(74, 37);
             this.btnGetValue.TabIndex = 4;
@@ -270,7 +271,7 @@
             this.chkRunContinuous.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkRunContinuous.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chkRunContinuous.Location = new System.Drawing.Point(82, 56);
-            this.chkRunContinuous.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkRunContinuous.Margin = new System.Windows.Forms.Padding(2);
             this.chkRunContinuous.Name = "chkRunContinuous";
             this.chkRunContinuous.Size = new System.Drawing.Size(106, 37);
             this.chkRunContinuous.TabIndex = 15;
@@ -295,9 +296,9 @@
             this.groupBox2.Controls.Add(this.btnLoadCamCfg);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(2, 68);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(191, 259);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
@@ -309,7 +310,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCameraName.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCameraName.Location = new System.Drawing.Point(76, 143);
-            this.txtCameraName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCameraName.Margin = new System.Windows.Forms.Padding(2);
             this.txtCameraName.Name = "txtCameraName";
             this.txtCameraName.Size = new System.Drawing.Size(108, 27);
             this.txtCameraName.TabIndex = 19;
@@ -334,7 +335,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtYResolution.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtYResolution.Location = new System.Drawing.Point(91, 230);
-            this.txtYResolution.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtYResolution.Margin = new System.Windows.Forms.Padding(2);
             this.txtYResolution.Name = "txtYResolution";
             this.txtYResolution.Size = new System.Drawing.Size(94, 27);
             this.txtYResolution.TabIndex = 17;
@@ -359,7 +360,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtImageWidth.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtImageWidth.Location = new System.Drawing.Point(76, 200);
-            this.txtImageWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtImageWidth.Margin = new System.Windows.Forms.Padding(2);
             this.txtImageWidth.Name = "txtImageWidth";
             this.txtImageWidth.Size = new System.Drawing.Size(108, 27);
             this.txtImageWidth.TabIndex = 15;
@@ -384,7 +385,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCamIP.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCamIP.Location = new System.Drawing.Point(32, 173);
-            this.txtCamIP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCamIP.Margin = new System.Windows.Forms.Padding(2);
             this.txtCamIP.Name = "txtCamIP";
             this.txtCamIP.Size = new System.Drawing.Size(154, 27);
             this.txtCamIP.TabIndex = 13;
@@ -409,7 +410,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCamCalibPath.Font = new System.Drawing.Font("微软雅黑", 6.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCamCalibPath.Location = new System.Drawing.Point(4, 94);
-            this.txtCamCalibPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCamCalibPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtCamCalibPath.Multiline = true;
             this.txtCamCalibPath.Name = "txtCamCalibPath";
             this.txtCamCalibPath.ReadOnly = true;
@@ -422,7 +423,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCamCfgPath.Font = new System.Drawing.Font("微软雅黑", 6.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCamCfgPath.Location = new System.Drawing.Point(5, 54);
-            this.txtCamCfgPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCamCfgPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtCamCfgPath.Multiline = true;
             this.txtCamCfgPath.Name = "txtCamCfgPath";
             this.txtCamCfgPath.ReadOnly = true;
@@ -437,7 +438,7 @@
             this.btnLoadCalib.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLoadCalib.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnLoadCalib.Location = new System.Drawing.Point(91, 15);
-            this.btnLoadCalib.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadCalib.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadCalib.Name = "btnLoadCalib";
             this.btnLoadCalib.Size = new System.Drawing.Size(93, 37);
             this.btnLoadCalib.TabIndex = 9;
@@ -451,7 +452,7 @@
             this.btnLoadCamCfg.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLoadCamCfg.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnLoadCamCfg.Location = new System.Drawing.Point(4, 15);
-            this.btnLoadCamCfg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadCamCfg.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadCamCfg.Name = "btnLoadCamCfg";
             this.btnLoadCamCfg.Size = new System.Drawing.Size(83, 37);
             this.btnLoadCamCfg.TabIndex = 8;
@@ -464,9 +465,9 @@
             this.groupBox1.Controls.Add(this.btnLoadEnv);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(191, 66);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
@@ -480,7 +481,7 @@
             this.btnLoadEnv.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLoadEnv.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnLoadEnv.Location = new System.Drawing.Point(4, 19);
-            this.btnLoadEnv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadEnv.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadEnv.Name = "btnLoadEnv";
             this.btnLoadEnv.Size = new System.Drawing.Size(185, 37);
             this.btnLoadEnv.TabIndex = 2;
@@ -493,9 +494,9 @@
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(132)))), ((int)(((byte)(198)))));
             this.tabPage4.Controls.Add(this.groupBox7);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage4.Size = new System.Drawing.Size(195, 556);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "扩展功能";
@@ -505,9 +506,9 @@
             this.groupBox7.Controls.Add(this.btnSaveEzR);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(2, 2);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox7.Size = new System.Drawing.Size(191, 66);
             this.groupBox7.TabIndex = 25;
             this.groupBox7.TabStop = false;
@@ -521,7 +522,7 @@
             this.btnSaveEzR.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSaveEzR.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSaveEzR.Location = new System.Drawing.Point(4, 19);
-            this.btnSaveEzR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveEzR.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveEzR.Name = "btnSaveEzR";
             this.btnSaveEzR.Size = new System.Drawing.Size(182, 37);
             this.btnSaveEzR.TabIndex = 19;
@@ -531,36 +532,24 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.listBoxLog);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage5.Size = new System.Drawing.Size(195, 556);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "运行日志";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // listBoxLog
-            // 
-            this.listBoxLog.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.listBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxLog.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxLog.FormattingEnabled = true;
-            this.listBoxLog.ItemHeight = 20;
-            this.listBoxLog.Location = new System.Drawing.Point(2, 2);
-            this.listBoxLog.Name = "listBoxLog";
-            this.listBoxLog.Size = new System.Drawing.Size(191, 552);
-            this.listBoxLog.TabIndex = 1;
             // 
             // tabControl1
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Right;
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -571,9 +560,9 @@
             // 
             this.tabPage2.Controls.Add(this.splitContainer2);
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(742, 574);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "图像显示";
@@ -583,7 +572,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(2, 2);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -602,7 +591,7 @@
             // 
             this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementHost2.Location = new System.Drawing.Point(0, 0);
-            this.elementHost2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.elementHost2.Margin = new System.Windows.Forms.Padding(2);
             this.elementHost2.Name = "elementHost2";
             this.elementHost2.Size = new System.Drawing.Size(348, 570);
             this.elementHost2.TabIndex = 1;
@@ -613,7 +602,7 @@
             // 
             this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementHost3.Location = new System.Drawing.Point(0, 0);
-            this.elementHost3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.elementHost3.Margin = new System.Windows.Forms.Padding(2);
             this.elementHost3.Name = "elementHost3";
             this.elementHost3.Size = new System.Drawing.Size(387, 570);
             this.elementHost3.TabIndex = 2;
@@ -623,10 +612,10 @@
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage1.Size = new System.Drawing.Size(741, 574);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(742, 574);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "EzR调试界面";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -636,6 +625,29 @@
             this.runTimer.Interval = 10;
             this.runTimer.Tick += new System.EventHandler(this.runTimer_Tick);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.listBoxLog);
+            this.tabPage6.Location = new System.Drawing.Point(4, 4);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(742, 574);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "运行日志";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // listBoxLog
+            // 
+            this.listBoxLog.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.listBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxLog.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxLog.FormattingEnabled = true;
+            this.listBoxLog.ItemHeight = 20;
+            this.listBoxLog.Location = new System.Drawing.Point(3, 3);
+            this.listBoxLog.Name = "listBoxLog";
+            this.listBoxLog.Size = new System.Drawing.Size(736, 568);
+            this.listBoxLog.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -643,7 +655,7 @@
             this.ClientSize = new System.Drawing.Size(974, 582);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "SICK 3D程序示例";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -661,13 +673,13 @@
             this.groupBox1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -713,6 +725,7 @@
         private System.Windows.Forms.TextBox txtCameraName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.ListBox listBoxLog;
     }
 }
