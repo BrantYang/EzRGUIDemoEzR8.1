@@ -13,12 +13,12 @@ namespace EzRDemo
         /// </summary>
         [STAThread]
         static void Main()
-        {
+       {
             try
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm());
+                Application.Run(new EzRForm());
             }
             catch(Exception ee)
             {

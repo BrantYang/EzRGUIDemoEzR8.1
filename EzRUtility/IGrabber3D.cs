@@ -1,4 +1,6 @@
 ﻿using Sick.GenIStream;
+using Sick.EasyRanger;
+using Sick.EasyRanger.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +21,19 @@ namespace EzRUtility
 
         bool LoadParams(RangerConfig _config);
 
+        bool SetExposure(int Exp);
+
+        bool SetScanHeight(int ScanHeight);
+
+        int GetExposure();
+
+        int GetScanHeight();
+
         bool Connect();
 
         bool Start();
 
-        IFrame Grab(double yresolution, int timeout, bool Online = true);
+        Sick.EasyRanger.Base.IFrame Grab(bool Online = true);
 
         bool Stop();
 

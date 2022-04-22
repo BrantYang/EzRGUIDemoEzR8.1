@@ -1,148 +1,286 @@
 ﻿using Sick.EasyRanger;
+using Sick.EasyRanger.Base;
 using Sick.GenIStream;
+using Sick.StreamUI.ImageFormat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using IFrame = Sick.GenIStream.IFrame;
 
 namespace EzRUtility
 {
     public class Ranger3: IGrabber3D
     {
+        public event ImageCallback ImgReceived;
+
+        public delegate void ImageCallback(Sick.EasyRanger.Base.IFrame frame);
+
+        public event DisconnectCallback CameraDisconnected;
+
+        public delegate void DisconnectCallback(string CameraID);
 
         public RangerConfig Config { get { return _config; } set { _config = value; } }
         public Frame FrameData { get { return _frameData; } set { _frameData = value; } }
 
         ProcessingEnvironment env;
 
+        private  CameraDiscovery _discovery;
+        public ICamera Camera { get; private set; }
+
+        public FrameGrabber Grabber { get; set; }
+
         RangerConfig _config = new RangerConfig();
 
         Frame _frameData = Frame.Create();
 
-        public void Set()
+        public Ranger3()
         {
-
+            //Init();
         }
 
 
+        public bool Init()
+        {
+            try
+            {
+                var path = Environment.GetEnvironmentVariable("SICK_EASYRANGER_ROOT");
+                _discovery = CameraDiscovery.CreateFromProducerFile($@"{path}\SICKGigEVisionTL.cti");
+                if (env == null)
+                {
+                    env = new ProcessingEnvironment();
+                    IStepProgram sp = env.CreateStepProgram("Filter Image");
+                    var filterStep = sp.GetStep(sp.CreateStep("Image Filtering", "Filter"));
+                    filterStep.SetArgument("Source Image", "Image");
+                    filterStep.SetArgument("Size X", "5.0");
+                    filterStep.SetResult("Destination Image", "FilteredImage");
+                }
+                var discoveredCameras = _discovery.ScanForCameras();
+                if (discoveredCameras.Count > 0)
+                {
+                    Camera = _discovery.ConnectTo(IPAddress.Parse(_config.IPAddress));
+
+                    if((Camera==null)|| (!Camera.IsConnected))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        Grabber?.Dispose();
+                        Grabber = Camera?.CreateFrameGrabber();
+
+                        //ConfigurationResult cfgResult = Camera.ImportParametersFromCsvData(_config.ParamCSVFile);
+                        return true;
+                    }
+                }
+                else
+                {
+                    return discoveredCameras.Count == 0 ? false : true;
+                }
+            }
+            catch (Exception ee)
+            {
+                return false;
+            }
+        }
 
         public bool Connect()
         {
+            try
+            {
+                if (!Camera.IsConnected)
+                {
+                    Camera = _discovery.ConnectTo(IPAddress.Parse(_config.IPAddress));
+                    Grabber?.Dispose();
+                    Grabber = Camera?.CreateFrameGrabber();
+                    //Grabber.FrameReceived += GrabberOnFrameReceived;
+                    //Camera.Disconnected += RangerDisconnected;
 
-            //env.Cameras[0].Connect();
+                }
+                else
+                {
+                    Camera.Disconnect();
+                    Camera = _discovery.ConnectTo(IPAddress.Parse(_config.IPAddress));
+                    Grabber?.Dispose();
+                    Grabber = Camera?.CreateFrameGrabber();
+                    //Grabber.FrameReceived += GrabberOnFrameReceived;
+                    //Camera.Disconnected += RangerDisconnected;
+                }
 
-            //env.Cameras[0].OutputMode = OutputType.CalibratedAndRectified;
-            //env.Cameras[0].RectificationWidth = _config.RectificationWidth;
-            //env.Cameras[0].YResolution = Convert.ToSingle(_config.YResolution);
+                return Camera.IsConnected;
+            }
+            catch (Exception)
+            {
 
-            return true;
+                return false;
+            }
 
+        }
+
+        public bool Start()
+        {
+            try
+            {
+                if (Grabber != null)
+                {
+                    Grabber.Start();
+                    // Register to FrameReceived  event
+                    Grabber.FrameReceived += GrabberOnFrameReceived;
+                    Camera.Disconnected += RangerDisconnected;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
+        public bool Stop()
+        {
+            if (Grabber != null)
+            {
+                Grabber.Stop();
+                //Grabber.FrameReceived -= GrabberOnFrameReceived;
+                //Camera.Disconnected -= RangerDisconnected;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Disconnect()
         {
 
-            //env.Cameras[0].Disconnect();
+            Stop();
+            Camera?.Disconnect();
+            Camera?.Dispose();
+            Camera = null;
             return true;
         }
 
-        public IFrame Grab(double yresolution, int timeout = 100000, bool Online = true)
-
+        public Sick.EasyRanger.Base.IFrame Grab(bool Online = true)
         {
-
-            string bankid = "image";
-
-            var task = Task.Factory.StartNew(() =>
+            //ImageBuffer imgBuffer = env.GetImageBuffer("Image");
+            //env.SetFrame(string Name, IFrame image)
+            //Frame frame2 = ToGenIStreamFrameConverter.ToGenIStreamFrame(env.GetFrame("Image"), inFrame);
+            try
             {
-                env.Cameras[0].Grab(bankid, timeout);
+                if (Online)
+                {
+                    if (env.ImageAvailable("Image"))
+                    {
+                        return env.GetFrame("Image");
+                    }
+                    return null;
+                }
+                else
+                {
+                    env.LoadImageFile(_config.DATFile, "Image", (float)_config.YResolution);
+                    return env.GetFrame("Image");
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
 
+            //For Trispector
+            //var task = Task.Factory.StartNew(() =>
+            //{
+            //    env.Cameras[0].Grab(bankid, timeout);
 
-            });
+            //});
 
-            Task.WaitAll(new Task[] { task });
+            //Task.WaitAll(new Task[] { task });
 
             //var buf = env.GetImageBank(bankid);
 
-            //_frameData.Width = buf.Info.Width;
-
-            //_frameData.Height = buf.Info.Height;
-
-            //_frameData.ZMin = buf.Info.RangeMin;
-
-            //_frameData.ZMax = buf.Info.RangeMax;
-
-            //_frameData.XResolution = buf.Info.XResolution;
-
-            //_frameData.YResolution = buf.Info.YResolution;
-
-            //_frameData.ZResolution = 1.0;
-
-            //_frameData.ZData = buf.range;
-
-            //_frameData.IntensityData = buf.intensity;
-
-            return _frameData;
-
-
         }
 
-        public bool Init()
-        {
-
-            if (env == null)
-            {
-                env = new ProcessingEnvironment();
-
-            }
-
-
-            //foreach (var item in env.Cameras)
-            //{
-            //    item.Disconnect();
-            //}
-
-            //env.Cameras.Clear();
-
-
-            //ICameraDevice cam = env.CreateCameraDevice("Camera1", new Sick.EasyRanger.Basic.CameraId(_config.CameraID), Sick.EasyRanger.Base.CameraType.Ranger3);
-
-
-
-            //cam.IP = _config.IPAddress;
-
-
-
-            //cam.ConfigurationFile = _config.ParamCSVFile;
-
-            //cam.CalibrationFile = _config.CalibrationFile;
-
-
-            return true;
-        }
 
         public bool LoadParams(RangerConfig _config)
         {
+            ConfigurationResult cfgResult = Camera.ImportParametersFromCsvData(_config.ParamCSVFile);
             return true;
         }
 
         public bool SetParams(RangerConfig _config)
         {
+            //Camera.ExportParametersToFile(string filePath);
+            //RegionParameters regionParameters = Camera.GetCameraParameters().Region(RegionId.REGION_0);
+            //RegionParameters regionParameters2 = Camera.GetCameraParameters().Region(RegionId.REGION_1);
+            //Camera.GetCameraParameters().Region.ExposureTime.Set();
             return true;
         }
 
-        public bool Start()
+        public bool SetExposure(int Exp)
         {
-            //env.Cameras[0].Start();
+            try
+            {
+                RegionParameters regionParameters1 = Camera.GetCameraParameters().Region(RegionId.REGION_0);
+                RegionParameters regionParameters2 = Camera.GetCameraParameters().Region(RegionId.REGION_1);
+                regionParameters1.ExposureTime.Set((float)Exp);
+                regionParameters2.ExposureTime.Set((float)Exp);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
 
-            return true;
+            }
+
         }
 
-        public bool Stop()
+        public bool SetScanHeight(int ScanHeight)
         {
-            //env.Cameras[0].Stop();
+            try
+            {
+                RegionParameters regionParameters1 = Camera.GetCameraParameters().Region(RegionId.SCAN_3D_EXTRACTION_1);
+                regionParameters1.Height.Set((uint)ScanHeight);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
-            return true;
+        public int GetExposure()
+        {
+            return (int)(Camera.GetCameraParameters().Region(RegionId.REGION_1)).ExposureTime.Get();
+        }
+
+        public int GetScanHeight()
+        {
+            return (int)(Camera.GetCameraParameters().Region(RegionId.SCAN_3D_EXTRACTION_1)).Height.Get();
+        }
+
+        private void GrabberOnFrameReceived(IFrame frame)
+        {
+            if ((!frame.IsIncomplete())&& (null != ImgReceived))
+            {
+                FromGenIStreamFrameConverter.AddFrameToEnvironment(frame.Copy(), "Image", env);
+                
+                ImgReceived(FromGenIStreamFrameConverter.ToBaseFrame(frame));
+            }
+        }
+
+        private void RangerDisconnected(string CameraID)
+        {
+            if (null != CameraDisconnected)
+            {
+                CameraDisconnected(CameraID);
+            }
         }
 
     }

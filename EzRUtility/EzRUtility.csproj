@@ -40,6 +40,9 @@
     <Reference Include="Sick.GenIStreamDotNet">
       <HintPath>..\Lib\Sick.GenIStreamDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Sick.StreamUI">
+      <HintPath>..\Lib\Sick.StreamUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

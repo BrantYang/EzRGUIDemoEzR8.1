@@ -42,7 +42,6 @@ namespace EzRUtility
 
         public int ProfileTrig_EncoderPulseDivider { get; set; } = 1;
 
-
         public bool ImgTrig_On { get; set; } = true;
 
         public bool ImgTrig_RisingEdge { get; set; } = true;

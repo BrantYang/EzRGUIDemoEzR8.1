@@ -53,3 +53,7 @@ D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\ReactiveUI.dll
 D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRViewer.pdb
 D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\sick_easyranger.dll
 D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.csproj.CopyComplete
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.csprojAssemblyReference.cache
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRUtility.dll
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\bin\x64\Debug\EzRUtility.pdb
+D:\Github\EzRGUIDemoEzR8.1\EzRDemo\obj\x64\Debug\EzRDemo.EzRForm.resources
