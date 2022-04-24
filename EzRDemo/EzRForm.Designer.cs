@@ -63,11 +63,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.listBoxLog = new System.Windows.Forms.ListBox();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,6 +88,10 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -574,34 +580,13 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.elementHost3);
             this.splitContainer2.Size = new System.Drawing.Size(782, 688);
-            this.splitContainer2.SplitterDistance = 368;
+            this.splitContainer2.SplitterDistance = 377;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
-            // elementHost2
-            // 
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(0, 0);
-            this.elementHost2.Margin = new System.Windows.Forms.Padding(2);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(368, 688);
-            this.elementHost2.TabIndex = 1;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = null;
-            // 
-            // elementHost3
-            // 
-            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost3.Location = new System.Drawing.Point(0, 0);
-            this.elementHost3.Margin = new System.Windows.Forms.Padding(2);
-            this.elementHost3.Name = "elementHost3";
-            this.elementHost3.Size = new System.Drawing.Size(411, 688);
-            this.elementHost3.TabIndex = 2;
-            this.elementHost3.Text = "elementHost3";
-            this.elementHost3.Child = null;
-            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.splitContainer3);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
@@ -610,6 +595,29 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "EzR调试界面";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(2, 2);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.elementHost1);
+            this.splitContainer3.Size = new System.Drawing.Size(782, 688);
+            this.splitContainer3.SplitterDistance = 248;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(0, 0);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(530, 688);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = null;
             // 
             // tabPage6
             // 
@@ -633,6 +641,26 @@
             this.listBoxLog.Name = "listBoxLog";
             this.listBoxLog.Size = new System.Drawing.Size(780, 686);
             this.listBoxLog.TabIndex = 2;
+            // 
+            // elementHost2
+            // 
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost2.Location = new System.Drawing.Point(0, 0);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(377, 688);
+            this.elementHost2.TabIndex = 0;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = null;
+            // 
+            // elementHost3
+            // 
+            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost3.Location = new System.Drawing.Point(0, 0);
+            this.elementHost3.Name = "elementHost3";
+            this.elementHost3.Size = new System.Drawing.Size(402, 688);
+            this.elementHost3.TabIndex = 1;
+            this.elementHost3.Text = "elementHost3";
+            this.elementHost3.Child = null;
             // 
             // EzRForm
             // 
@@ -663,6 +691,10 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -703,12 +735,14 @@
         private System.Windows.Forms.Button btnSaveEzR;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Integration.ElementHost elementHost2;
-        private System.Windows.Forms.Integration.ElementHost elementHost3;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.ListBox listBoxLog;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private System.Windows.Forms.Integration.ElementHost elementHost2;
+        private System.Windows.Forms.Integration.ElementHost elementHost3;
     }
 }

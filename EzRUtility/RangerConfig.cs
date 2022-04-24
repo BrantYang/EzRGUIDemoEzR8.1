@@ -10,6 +10,7 @@ namespace EzRUtility
     {
         public string IPAddress { get; set; } = "192.168.0.66";
 
+
         public string CameraID { get; set; } = "Camera1";
 
         public string CameraName { get; set; } = "Ranger3";

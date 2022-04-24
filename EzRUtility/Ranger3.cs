@@ -47,7 +47,10 @@ namespace EzRUtility
             try
             {
                 var path = Environment.GetEnvironmentVariable("SICK_EASYRANGER_ROOT");
-                _discovery = CameraDiscovery.CreateFromProducerFile($@"{path}\SICKGigEVisionTL.cti");
+                if(_discovery ==  null)
+                {
+                    _discovery = CameraDiscovery.CreateFromProducerFile($@"{path}\SICKGigEVisionTL.cti");
+                }
                 if (env == null)
                 {
                     env = new ProcessingEnvironment();
@@ -70,7 +73,6 @@ namespace EzRUtility
                     {
                         Grabber?.Dispose();
                         Grabber = Camera?.CreateFrameGrabber();
-
                         //ConfigurationResult cfgResult = Camera.ImportParametersFromCsvData(_config.ParamCSVFile);
                         return true;
                     }

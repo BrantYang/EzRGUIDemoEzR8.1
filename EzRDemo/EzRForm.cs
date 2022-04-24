@@ -20,6 +20,8 @@ namespace EzRDemo
         //2D显示控件
         View2DControl viewer2D_A;//显示控件A
         View2DControl viewer2D_B;//显示控件B
+
+        View3DControl viewer3D; //3D显示控件
         RangerConfig cam3dCfg = new RangerConfig();
 
         EzRProgram ezrProg = null;
@@ -59,17 +61,20 @@ namespace EzRDemo
             ezrProg = new EzRProgram("EzRProg.env");
             OnUpdatListContext("程序启动");
             viewer2D_A = new View2DControl();
-            viewer2D_B = new View2DControl();
+            //viewer2D_B = new View2DControl();
+            viewer3D = new View3DControl();
             elementHost2.Child = viewer2D_A;
-            elementHost3.Child = viewer2D_B;
+            elementHost3.Child = viewer3D;
+
             //viewer2D_A.ShowInformation = Visibility.Hidden;
             //viewer2D_B.ShowInformation = Visibility.Hidden;
             viewer2D_A.FontSize = 8.0;
-            viewer2D_B.FontSize = 8.0;
+            //viewer2D_B.FontSize = 8.0;
             //viwerWCtl.view2D.Visibility = Visibility.Visible;
             //viwerWCtl.view3D.Visibility = System.Windows.Visibility.Hidden;
             viewer2D_A.Environment = ezrProg.Env;
-            viewer2D_B.Environment = ezrProg.Env;
+            //viewer2D_B.Environment = ezrProg.Env;
+            viewer3D.Init(null, ezrProg.Env);
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -89,6 +94,11 @@ namespace EzRDemo
             }
 
         }
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            cam3d.Disconnect();
+        }
+
         private void Image3DReceived(Sick.EasyRanger.Base.IFrame frame)
         {
             if (null != frame)
@@ -126,9 +136,10 @@ namespace EzRDemo
                 //this will creates an image variable with the name "Image".
                 ezrProg.Env.SetFrame("Image", frame);
                 //IStepProgram program = easyRanger.GetStepProgram(0);
-                //program.RunFromBeginning();
+                OnUpdatListContext("运行结束,耗时ms："+(ezrProg.RunSubProgram("Main").ToString()));
 
                 viewer2D_A.DrawImage("Image", SubComponent.Range);
+                viewer3D.Draw("Image");
 
             }
             catch (Exception ee)
@@ -141,9 +152,6 @@ namespace EzRDemo
             //Sick.EasyRanger.Base.IFrame image = easyRanger.GetFrame("Image");
         }
 
-        private void btnDisconnect_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
