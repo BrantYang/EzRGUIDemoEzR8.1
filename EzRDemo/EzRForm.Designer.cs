@@ -63,13 +63,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.listBoxLog = new System.Windows.Forms.ListBox();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnEditRegion = new System.Windows.Forms.Button();
+            this.btnEditPoint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,9 +93,11 @@
             this.splitContainer2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -584,6 +589,26 @@
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
+            // elementHost2
+            // 
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost2.Location = new System.Drawing.Point(0, 0);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(377, 688);
+            this.elementHost2.TabIndex = 0;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = null;
+            // 
+            // elementHost3
+            // 
+            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost3.Location = new System.Drawing.Point(0, 0);
+            this.elementHost3.Name = "elementHost3";
+            this.elementHost3.Size = new System.Drawing.Size(402, 688);
+            this.elementHost3.TabIndex = 1;
+            this.elementHost3.Text = "elementHost3";
+            this.elementHost3.Child = null;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.splitContainer3);
@@ -602,11 +627,15 @@
             this.splitContainer3.Location = new System.Drawing.Point(2, 2);
             this.splitContainer3.Name = "splitContainer3";
             // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox5);
+            // 
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.elementHost1);
             this.splitContainer3.Size = new System.Drawing.Size(782, 688);
-            this.splitContainer3.SplitterDistance = 248;
+            this.splitContainer3.SplitterDistance = 229;
             this.splitContainer3.TabIndex = 0;
             // 
             // elementHost1
@@ -614,7 +643,7 @@
             this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementHost1.Location = new System.Drawing.Point(0, 0);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(530, 688);
+            this.elementHost1.Size = new System.Drawing.Size(549, 688);
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
@@ -642,25 +671,45 @@
             this.listBoxLog.Size = new System.Drawing.Size(780, 686);
             this.listBoxLog.TabIndex = 2;
             // 
-            // elementHost2
+            // groupBox5
             // 
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(0, 0);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(377, 688);
-            this.elementHost2.TabIndex = 0;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = null;
+            this.groupBox5.Controls.Add(this.btnEditPoint);
+            this.groupBox5.Controls.Add(this.btnEditRegion);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(229, 187);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "图像区域编辑";
             // 
-            // elementHost3
+            // btnEditRegion
             // 
-            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost3.Location = new System.Drawing.Point(0, 0);
-            this.elementHost3.Name = "elementHost3";
-            this.elementHost3.Size = new System.Drawing.Size(402, 688);
-            this.elementHost3.TabIndex = 1;
-            this.elementHost3.Text = "elementHost3";
-            this.elementHost3.Child = null;
+            this.btnEditRegion.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditRegion.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEditRegion.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnEditRegion.Location = new System.Drawing.Point(9, 37);
+            this.btnEditRegion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditRegion.Name = "btnEditRegion";
+            this.btnEditRegion.Size = new System.Drawing.Size(209, 37);
+            this.btnEditRegion.TabIndex = 9;
+            this.btnEditRegion.Text = "编辑区域";
+            this.btnEditRegion.UseVisualStyleBackColor = false;
+            this.btnEditRegion.Click += new System.EventHandler(this.btnEditRegion_Click);
+            // 
+            // btnEditPoint
+            // 
+            this.btnEditPoint.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditPoint.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEditPoint.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnEditPoint.Location = new System.Drawing.Point(9, 84);
+            this.btnEditPoint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditPoint.Name = "btnEditPoint";
+            this.btnEditPoint.Size = new System.Drawing.Size(209, 37);
+            this.btnEditPoint.TabIndex = 10;
+            this.btnEditPoint.Text = "编辑测量点";
+            this.btnEditPoint.UseVisualStyleBackColor = false;
+            this.btnEditPoint.Click += new System.EventHandler(this.btnEditPoint_Click);
             // 
             // EzRForm
             // 
@@ -692,10 +741,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -744,5 +795,8 @@
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
         private System.Windows.Forms.Integration.ElementHost elementHost3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnEditPoint;
+        private System.Windows.Forms.Button btnEditRegion;
     }
 }

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace EzRDemo
@@ -19,7 +20,7 @@ namespace EzRDemo
         UpdateListContext m_UpdateListContext;
         //2D显示控件
         View2DControl viewer2D_A;//显示控件A
-        View2DControl viewer2D_B;//显示控件B
+        View2DControl viewer2D_Config;//显示控件B
 
         View3DControl viewer3D; //3D显示控件
         RangerConfig cam3dCfg = new RangerConfig();
@@ -61,8 +62,9 @@ namespace EzRDemo
             ezrProg = new EzRProgram("EzRProg.env");
             OnUpdatListContext("程序启动");
             viewer2D_A = new View2DControl();
-            //viewer2D_B = new View2DControl();
+            viewer2D_Config = new View2DControl();
             viewer3D = new View3DControl();
+            elementHost1.Child = viewer2D_Config;
             elementHost2.Child = viewer2D_A;
             elementHost3.Child = viewer3D;
 
@@ -73,8 +75,25 @@ namespace EzRDemo
             //viwerWCtl.view2D.Visibility = Visibility.Visible;
             //viwerWCtl.view3D.Visibility = System.Windows.Visibility.Hidden;
             viewer2D_A.Environment = ezrProg.Env;
-            //viewer2D_B.Environment = ezrProg.Env;
+            viewer2D_Config.Environment = ezrProg.Env;
+            viewer2D_Config.OnNewPoint += Viewer2D_Config_OnNewPoint;
+            viewer2D_Config.OnNewRegion += Viewer2D_Config_OnNewRegion;
             viewer3D.Init(null, ezrProg.Env);
+
+            viewer2D_Config.DrawImage("Image",SubComponent.Range);
+        }
+
+        private void Viewer2D_Config_OnNewRegion(object sender, System.Windows.Point[] firstCorners, System.Windows.Point[] secondCorners, double[] angles)
+        {
+            ezrProg.Env.SetRois("FitReg", firstCorners, secondCorners, RoiType.Rectangle, angles);
+            viewer2D_Config.DrawRoi("FitReg", -1, System.Windows.Media.Color.FromRgb(0, 0, 255));
+//throw new NotImplementedException();
+        }
+
+        private void Viewer2D_Config_OnNewPoint(object sender, System.Windows.Point[] points)
+        {
+
+            throw new NotImplementedException();
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -84,7 +103,7 @@ namespace EzRDemo
             cam3d.Config = cam3dCfg;
             if(!cam3d.Init())
             {
-                MessageBox.Show("相机连接失败");
+                System.Windows.Forms.MessageBox.Show("相机连接失败");
             }
             else
             {
@@ -152,6 +171,15 @@ namespace EzRDemo
             //Sick.EasyRanger.Base.IFrame image = easyRanger.GetFrame("Image");
         }
 
+        private void btnEditRegion_Click(object sender, EventArgs e)
+        {
+            //iewer2D_Config.EditCheckBox_Check();
+            //viewer2D_Config.CreateRegion_Checked(null, null);
+        }
 
+        private void btnEditPoint_Click(object sender, EventArgs e)
+        {
+            viewer2D_Config.CreatePoints2D_Click(null, null);
+        }
     }
 }

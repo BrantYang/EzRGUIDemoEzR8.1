@@ -27,4 +27,3 @@ D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\ko\System.Windows.Interactivity.
 D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\ru\System.Windows.Interactivity.resources.dll
 D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 D:\Github\EzRGUIDemoEzR8.1\EzRUtility\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-D:\Github\EzRGUIDemoEzR8.1\EzRUtility\obj\Debug\EzRUtility.csprojAssemblyReference.cache
